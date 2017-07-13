@@ -1,5 +1,5 @@
 import React from 'react';
-import {render} from 'react-dom';
+import { render } from 'react-dom';
 import KanbanBoard from './KanbanBoard';
 
 let cardsList = [
@@ -37,13 +37,13 @@ let cardsList = [
   }
 ];
 
-class HelloWord extends React.Component{
+class HelloWord extends React.Component {
 
-  render(){
+  render() {
     //TODO: what is let differ from var
-    let mystyle={
-      width:100,
-      height:30,
+    let mystyle = {
+      width: 100,
+      height: 30,
       padding: 5,
       backgroundColor: '#ee9900'
     }
@@ -54,5 +54,47 @@ class HelloWord extends React.Component{
     )
   }
 }
-render(<KanbanBoard cards={cardsList} />, document.getElementById('root'));
+
+class Search extends React.Component {
+  constructor(){
+    super();
+    this.state={searchTerm:"React"}
+  }
+
+  handleChange(event){
+    this.setState({searchTerm:event.value})
+  }
+
+  render() {
+    return(
+      <div>
+        <input value={this.state.searchTerm} onChange={this.handleChange.bind(this)}/>
+      </div>
+    )
+  }
+}
+
+class UncontrolledForm extends React.Component{
+  handlerSubmit(event){
+    console.log("submitted value is:",event.target.name.value,event.target.email.value,"end");
+    event.preventDefault();
+  }
+  render(){
+    return (
+      <form onSubmit={this.handlerSubmit.bind(this)}>
+        <div className="formGroup">
+          Name:<input name="name" type="text"/>
+        </div>
+        <div className="formGroup">
+          E-mail:<input name="email" type="email"/>
+        </div>
+        <button type="submit">submit</button>
+      </form>
+    )
+  }
+}
+
+// render(<KanbanBoard cards={cardsList} />, document.getElementById('root'));
 // render(<HelloWord/>, document.getElementById('root'));
+// render(<Search />, document.getElementById('root'));
+render(<UncontrolledForm/>,document.getElementById("root"));
