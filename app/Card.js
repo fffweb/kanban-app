@@ -20,6 +20,7 @@ class Card extends Component {
         <div className="card__details">
           {this.props.description}
           <CheckList cardId={this.props.id} tasks={this.props.tasks} />
+          <input type="text" className="checklist--add-task" placeholder="Type to add new task"/>
         </div>
       );
     };

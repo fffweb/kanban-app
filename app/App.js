@@ -94,7 +94,7 @@ class UncontrolledForm extends React.Component{
   }
 }
 
-// render(<KanbanBoard cards={cardsList} />, document.getElementById('root'));
+render(<KanbanBoard cards={cardsList} />, document.getElementById('root'));
 // render(<HelloWord/>, document.getElementById('root'));
 // render(<Search />, document.getElementById('root'));
-render(<UncontrolledForm/>,document.getElementById("root"));
+// render(<UncontrolledForm/>,document.getElementById("root"));
