@@ -94,7 +94,41 @@ class UncontrolledForm extends React.Component{
   }
 }
 
-render(<KanbanBoard cards={cardsList} />, document.getElementById('root'));
+class FocusText extends React.Component{
+  handleClick(){
+    this.refs.myTextInput.focus();
+  }
+
+  render(){
+    return (
+      <div>
+        <input type="text" ref="myTextInput" />
+        <input type="button" value="change Focus" onClick={this.handleClick.bind(this)} />
+      </div>
+    )
+  }
+}
+
+class Greeter extends React.Component{
+  render(){
+    return(
+      <div>
+        {this.props.greetings}
+        </div>
+    )
+  }
+}
+
+Greeter.propTypes={
+  greetings:React.PropTypes.string
+}
+
+Greeter.defaultProps={
+  greetings: "hello default"
+}
+// render(<KanbanBoard cards={cardsList} />, document.getElementById('root'));
 // render(<HelloWord/>, document.getElementById('root'));
 // render(<Search />, document.getElementById('root'));
 // render(<UncontrolledForm/>,document.getElementById("root"));
+// render(<FocusText/>,document.getElementById('root'));
+render(<Greeter/>,document.getElementById('root'));
