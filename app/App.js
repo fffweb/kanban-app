@@ -1,11 +1,11 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 import KanbanBoard from './KanbanBoard';
 
 let cardsList = [
   {
     id: 1,
-    title: "Read the Book",
+    title: "Read the Book ",
     description: "I should read the whole book",
     color: '#BD8D31',
     status: "in-progress",
@@ -109,24 +109,24 @@ class FocusText extends React.Component{
   }
 }
 
-class Greeter extends React.Component{
-  render(){
-    return(
-      <div>
-        {this.props.greetings}__{this.props.name}
-        </div>
-    )
-  }
-}
+// class Greeter extends React.Component{
+//   render(){
+//     return(
+//       <div>
+//         {this.props.greetings}__{this.props.name}
+//         </div>
+//     )
+//   }
+// }
 
-Greeter.propTypes={
-  greetings:React.PropTypes.string,
-  name:PropTypes.string.isRequired
-}
+// Greeter.propTypes={
+//   greetings:React.PropTypes.string,
+//   name:React.PropTypes.string.isRequired
+// }
 
-Greeter.defaultProps={
-  greetings: "hello default"
-}
+// Greeter.defaultProps={
+//   greetings: "hello default"
+// }
 render(<KanbanBoard cards={cardsList} />, document.getElementById('root'));
 // render(<HelloWord/>, document.getElementById('root'));
 // render(<Search />, document.getElementById('root'));
