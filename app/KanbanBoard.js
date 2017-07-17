@@ -19,7 +19,7 @@ class KanbanBoard extends Component {
   }
 };
 
-KanbanBoard.PropTypes={
+KanbanBoard.propTypes={
   cards:PropTypes.arrayOf(PropTypes.object)
 }
 

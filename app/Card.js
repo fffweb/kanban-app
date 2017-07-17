@@ -4,7 +4,8 @@ import CheckList from './CheckList';
 let titilePropType = (props, propname, componentName) => {
   if(props[propname]){
     let value = props[propname];
-    if(typeof value !== string || value.length < 80){
+    //DONE:  string must in quote, if(typeof value !== 'string' || value.length > 80){
+    if(typeof value !== 'string' || value.length > 80){
       return new Error(
         '${propName`} in ${componentName} is longer than 80 characters'
       );
@@ -54,7 +55,7 @@ backgroundColor: this.props.color
   }
 }
 
-Card.PropTypes={
+Card.propTypes={
   id:PropTypes.number,
   title:titilePropType,
   description:PropTypes.string,

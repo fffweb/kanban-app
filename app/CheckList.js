@@ -18,8 +18,8 @@ class CheckList extends Component {
   }
 }
 
-CheckList.PropTypes={
-  cardid:PropTypes.string,
+CheckList.propTypes={
+  cardid:PropTypes.id,
   tasks:PropTypes.arrayOf(PropTypes.object)
 }
 export default CheckList;

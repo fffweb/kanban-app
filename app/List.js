@@ -21,7 +21,7 @@ class List extends Component {
   }
 };
 
-List.PropTypes={
+List.propTypes={
   title:PropTypes.string,
   cards:PropTypes.arrayOf(PropTypes.object)
 }
