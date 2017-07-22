@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Render } from 'react-dom';
 
-let contacts = [
+let contacts1 = [
     {
         "name": "Cassio Zen",
         "email": "cassiozen@gmail.com"
@@ -34,10 +34,27 @@ let contacts = [
 // ContactList
 // ContactItem
 class ContactsAppContainer extends Component {
+    constructor(){
+        super();
+        this.state={
+            contacts:[]
+        }
+    }
+
+    componentDidMount(){
+        fetch('./contacts.json')
+        .then((response) => response.json())
+        .then((responseData)=>{
+            this.setState({contacts:responseData});
+        })
+        .catch((error)=>{
+            console.log('Error fetching and parsing data',error);
+        })
+    }
 
     render() {
         return (
-            <ContactsApp contacts={contacts} >
+            <ContactsApp contacts={this.state.contacts} >
             </ContactsApp>
         )
     }
