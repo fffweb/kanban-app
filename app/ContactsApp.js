@@ -80,10 +80,10 @@ class ContactList extends Component {
     //     }
     // }
     render() {
-        let filterContacts = this.props.contacts;
+        let filterContacts = this.props.contacts.filter(contact=>contact.name.indexOf(this.props.filterText)!==-1);
         return (
             <ul>
-                {this.props.filterContacts.map(
+                {filterContacts.map(
                     (contact) => <ContactItem key={contact.email}
                         name={contact.name}
                         email={contact.email} />
