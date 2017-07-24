@@ -12,7 +12,7 @@ const API_HEADERS = {
    * your middle name, your favorite animal, your superpower of choice...
    * An unique authorization will allow you to have your own environment for cards and tasks
    */
-  Authorization: 'CHANGE THIS VALUE'
+  Authorization: 'leo@hotmail.com'
 };
 
 class KanbanBoardContainer extends Component {
@@ -33,7 +33,6 @@ class KanbanBoardContainer extends Component {
     });
   }
 
-
   addTask(cardId, taskName){
     // Keep a reference to the original state prior to the mutations
     // in case we need to revert the optimistic changes in the UI
@@ -43,11 +42,16 @@ class KanbanBoardContainer extends Component {
     // Create a new task with the given name and a temporary ID
     let newTask = {id:Date.now(), name:taskName, done:false};
     // Create a new object and push the new task to the array of tasks
-    let nextState = update(this.state.cards, {
-      [cardIndex]: {
-        tasks: {$push: [newTask] }
+    let nextState = update(this.state.cards,{
+      [cardIndex]:{
+        tasks:{$push: [newTask]}
       }
-    });
+    })
+    // let nextState = update(this.state.cards, {
+    //   [cardIndex]: {
+    //     tasks: {$push: [newTask] }
+    //   }
+    // });
     // set the component state to the mutated object
     this.setState({cards:nextState});
     // Call the API to add the task on the server
@@ -84,6 +88,7 @@ class KanbanBoardContainer extends Component {
     // Find the index of the card
     let cardIndex = this.state.cards.findIndex((card)=>card.id == cardId);
     // Create a new object without the task
+    
     let nextState = update(this.state.cards, {
       [cardIndex]: {
         tasks: {$splice: [[taskIndex,1]] }
@@ -156,11 +161,13 @@ class KanbanBoardContainer extends Component {
   }
 
   render() { return (
+    <div>
     <KanbanBoard cards={this.state.cards}
     taskCallbacks={{
       toggle: this.toggleTask.bind(this),
       delete: this.deleteTask.bind(this),
       add: this.addTask.bind(this) }} />
+      </div>
     )
   }
 }

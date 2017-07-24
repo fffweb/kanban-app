@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,PropTypes } from 'react';
 import { Render } from 'react-dom';
 
 let contacts1 = [
@@ -79,6 +79,11 @@ class ContactsApp extends Component {
         )
     }
 }
+
+ContactsApp.propTypes={
+    contacts: PropTypes.arrayOf(PropTypes.object)
+}
+
 class SearchBar extends Component {
     handleChange(event){
         this.props.onInputChange(event.target.value)
@@ -88,6 +93,10 @@ class SearchBar extends Component {
             <input value={this.props.filterText} onChange={this.handleChange.bind(this)}></input>
         )
     }
+}
+SearchBar.propTypes={
+    filterText:PropTypes.string,
+    onInputChange:PropTypes.func
 }
 class ContactList extends Component {
     // constructor(){

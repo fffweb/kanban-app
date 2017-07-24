@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import KanbanBoard from './KanbanBoard';
 import ContactsAppContainer from './ContactsApp'
+import KanbanBoardContainer from './KanbanBoardContainer'
 
 let cardsList = [
   {
@@ -130,10 +131,11 @@ class FocusText extends React.Component{
 // }
 
 // render(<KanbanBoard cards={cardsList} />, document.getElementById('root'));
+render(<KanbanBoardContainer />,document.getElementById('root'));
 // render(<HelloWord/>, document.getElementById('root'));
 // render(<Search />, document.getElementById('root'));
 // render(<UncontrolledForm/>,document.getElementById("root"));
 // render(<FocusText/>,document.getElementById('root'));
 // render(<Greeter/>,document.getElementById('root'));
 
-render(<ContactsAppContainer />, document.getElementById('root'));
+// render(<ContactsAppContainer />, document.getElementById('root'));
